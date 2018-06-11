@@ -28,12 +28,13 @@ export class MyApp {
   }
 
   initializeApp() {
+    /* Our app will be PWA first, so there's no need to call platform neither plugins.
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    });
+    });*/
   }
 
   openPage(page) {
