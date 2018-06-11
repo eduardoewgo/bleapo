@@ -16,7 +16,7 @@ import {AuthProvider} from '../providers/auth/auth';
 /* Pages */
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
+import {LoginPage} from '../pages/login/login';
 
 
 
@@ -25,7 +25,7 @@ import {ListPage} from '../pages/list/list';
     declarations: [
         MyApp,
         HomePage,
-        ListPage
+        LoginPage
     ],
     imports: [
         BrowserModule,
@@ -38,7 +38,7 @@ import {ListPage} from '../pages/list/list';
     entryComponents: [
         MyApp,
         HomePage,
-        ListPage
+        LoginPage
     ],
     providers: [
         StatusBar,
