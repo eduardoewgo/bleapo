@@ -18,6 +18,7 @@ npm-debug.log*
 .tmp/
 .versions/
 coverage/
+environments/
 dist/
 node_modules/
 tmp/
