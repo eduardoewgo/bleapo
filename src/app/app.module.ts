@@ -12,19 +12,25 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 /* Providers */
 import {AuthProvider} from '../providers/auth/auth';
+import {PatientProvider} from '../providers/patient/patient';
+import {HomeProvider} from '../providers/home/home';
 
 /* Pages */
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {LoginPage} from '../pages/login/login';
-import {HomeProvider} from '../providers/home/home';
+import {PatientListPage} from "../pages/patient-list/patient-list";
+import {PatientPage} from "../pages/patient/patient";
 
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        LoginPage
+        LoginPage,
+        PatientListPage,
+        PatientPage
+
     ],
     imports: [
         BrowserModule,
@@ -37,14 +43,17 @@ import {HomeProvider} from '../providers/home/home';
     entryComponents: [
         MyApp,
         HomePage,
-        LoginPage
+        LoginPage,
+        PatientListPage,
+        PatientPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         AuthProvider,
-        HomeProvider
+        HomeProvider,
+        PatientProvider
     ]
 })
 export class AppModule {

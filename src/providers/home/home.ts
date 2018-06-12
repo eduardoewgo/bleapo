@@ -12,7 +12,7 @@ export class HomeProvider {
     }
 
     getAll() {
-        this.homesCollection = this.afs.collection<Home>('homes');
+        this.homesCollection = this.afs.collection('homes', ref => ref.orderBy('name'));
         return this.homesCollection.snapshotChanges().pipe(
             map(actions => actions.map(a => {
                 const data = a.payload.doc.data() as Home;

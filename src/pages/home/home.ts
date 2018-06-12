@@ -4,6 +4,7 @@ import {AuthProvider} from "../../providers/auth/auth";
 import {Home} from "../../shared/interfaces/home";
 import {Observable} from 'rxjs';
 import {HomeProvider} from "../../providers/home/home";
+import {PatientListPage} from "../patient-list/patient-list";
 
 @Component({
     selector: 'page-home',
@@ -21,6 +22,16 @@ export class HomePage {
             this.homes = this.homeProvider.getAll();
             this.homes.subscribe((data) => this.loader.dismiss());
         });
+    }
+
+    goTo(page: string, home: Home) {
+        switch (page) {
+            case 'patient-list':
+                this.navCtrl.push(PatientListPage, {home});
+                break;
+            default:
+                console.warn('switch condition failed');
+        }
     }
 
     presentLoading(): Promise<any> {

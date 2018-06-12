@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ home.name }} - Pacientes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list inset>
+        <ion-item-sliding #item *ngFor="let patient of patients | async">
+
+            <ion-item>
+                {{ patient.name }}
+            </ion-item>
+            <ion-item-options side="left" icon-start>
+                <button ion-button color="danger" (click)="futureFeature()">
+                    <ion-icon name="pulse"></ion-icon>
+                    Pulso
+                </button>
+                <button ion-button color="secondary" (click)="futureFeature()">
+                    <ion-icon name="radio-button-on"></ion-icon>
+                    Oximetria
+                </button>
+            </ion-item-options>
+
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>
