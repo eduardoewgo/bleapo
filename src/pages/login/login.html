@@ -3,17 +3,36 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Login</ion-title>
+        <ion-title>Bleapo</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
+
     <ion-grid>
+        <ion-row padding-top>
+            <ion-col col-8 push-2 text-center>
+                Faça o login para acessar o sistema.
+            </ion-col>
+        </ion-row>
         <ion-row>
             <ion-col col-12>
-                <button ion-button color="secondary" outline (click)="login()">Login</button>
+                <ion-list>
+                    <ion-item>
+                        <ion-label floating>Usuário</ion-label>
+                        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating>Senha</ion-label>
+                        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+                    </ion-item>
+                </ion-list>
             </ion-col>
-            <ion-col col-12>
+            <ion-col col-auto>
+                <button ion-button color="secondary" outline (click)="login(user)">Login</button>
+            </ion-col>
+            <ion-col col-auto>
                 <button ion-button color="danger" outline (click)="logout()">Logout</button>
             </ion-col>
         </ion-row>

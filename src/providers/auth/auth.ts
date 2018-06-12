@@ -10,14 +10,14 @@ export class AuthProvider {
     constructor(private afAuth: AngularFireAuth) {
     }
 
-    login(): Promise<User> {
-        return this.afAuth.auth.signInWithEmailAndPassword('jao@gmail.com', '123456')
+    login(user: User): Promise<User> {
+        return this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
             .then((data) => this.user = {...data.user})
             .catch((err: { code: string, message: string }) => console.warn(err));
     }
 
-    logout(): Promise<User> {
-        return this.afAuth.auth.signOut()
+    logout() {
+        this.afAuth.auth.signOut()
             .then(() => this.user = null)
             .catch((err) => console.warn(err));
     }
