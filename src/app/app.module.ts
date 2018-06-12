@@ -17,8 +17,7 @@ import {AuthProvider} from '../providers/auth/auth';
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {LoginPage} from '../pages/login/login';
-
-
+import {HomeProvider} from '../providers/home/home';
 
 
 @NgModule({
@@ -44,7 +43,8 @@ import {LoginPage} from '../pages/login/login';
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        AuthProvider
+        AuthProvider,
+        HomeProvider
     ]
 })
 export class AppModule {
