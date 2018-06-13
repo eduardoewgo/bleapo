@@ -35,7 +35,13 @@ export class PatientProvider {
             .doc(idPatient)
             .collection('status', ref => ref.limit(10));
 
-        return this.statusCollection.valueChanges();
+        return this.statusCollection.snapshotChanges().pipe(
+            map(actions => actions.map(a => {
+                const data = a.payload.doc.data() as Status;
+                const id = a.payload.doc.id;
+                const ref = a.payload.doc.ref;
+                return {id, ref, ...data};
+            })));
     }
 
 }
