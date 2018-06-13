@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
@@ -16,15 +16,15 @@
 
         <ion-list>
             <button ion-item (click)="goTo('patient-list', home)">
-                <ion-icon name="people" item-start></ion-icon>
+                <ion-icon name="people" color="secondary" item-start></ion-icon>
                 Pacientes
             </button>
             <button ion-item (click)="futureFeature()">
-                <ion-icon name="watch" item-start></ion-icon>
+                <ion-icon name="watch" color="primary" item-start></ion-icon>
                 Dispositivos
             </button>
             <button ion-item (click)="futureFeature()">
-                <ion-icon name="notifications" item-start></ion-icon>
+                <ion-icon name="notifications" color="warn" item-start></ion-icon>
                 Notificações
             </button>
         </ion-list>
