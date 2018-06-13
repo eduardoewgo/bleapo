@@ -4,6 +4,7 @@ import {Home} from "../../shared/interfaces/home";
 import {PatientProvider} from "../../providers/patient/patient";
 import {Observable} from "rxjs/index";
 import {Patient} from "../../shared/interfaces/patient";
+import {PatientPage} from "../patient/patient";
 
 @IonicPage()
 @Component({
@@ -22,12 +23,19 @@ export class PatientListPage {
 
         this.home = this.navParams.get('home');
         this.presentLoading().then(() => {
-            this.patients = this.patientProvider.getAllByHome(this.home.id);
-            this.patients.subscribe((data) => {
-                console.log(data);
-                this.loader.dismiss();
-            });
+            this.patients = this.patientProvider.getAll(this.home.id);
+            this.patients.subscribe((data) => this.loader.dismiss());
         });
+    }
+
+    goTo(page: string, patient: Patient) {
+        switch (page) {
+            case 'patient-pulse':
+                this.navCtrl.push(PatientPage, {home: this.home, patient});
+                break;
+            default:
+                console.warn('switch condition failed');
+        }
     }
 
     presentLoading(): Promise<any> {
