@@ -10,10 +10,14 @@
 <ion-content padding>
 
     <ion-list inset>
-        <ion-item-sliding #item *ngFor="let patient of patients | async">
+        <ion-list-header>
+            Pacientes
+        </ion-list-header>
 
+        <ion-item-sliding #item *ngFor="let patient of patients | async">
             <ion-item>
                 {{ patient.name }}
+                <p>{{ patient.observation }}</p>
             </ion-item>
             <ion-item-options side="left" icon-start>
                 <button ion-button color="danger" (click)="goTo('patient-pulse', patient)">
@@ -25,8 +29,8 @@
                     Oximetria
                 </button>
             </ion-item-options>
-
         </ion-item-sliding>
+
     </ion-list>
 
 </ion-content>
